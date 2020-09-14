@@ -3,6 +3,8 @@ package com.codecool.restapi.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.Set;
 
 @Entity
 public class Wheel {
@@ -12,6 +14,9 @@ public class Wheel {
     private float id;
     private float diameter;
     private float width;
+
+    @ManyToMany(mappedBy = "wheels")
+    Set<Car> cars;
 
     public float getId() {
         return id;

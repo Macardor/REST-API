@@ -1,9 +1,7 @@
 package com.codecool.restapi.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Engine {
@@ -13,6 +11,9 @@ public class Engine {
     private long id;
     private float volume;
     private float torque;
+
+    @ManyToMany(mappedBy = "engines")
+    Set<Car> cars;
 
     public long getId() {
         return id;

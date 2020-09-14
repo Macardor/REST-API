@@ -1,9 +1,7 @@
 package com.codecool.restapi.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Car {
@@ -14,6 +12,12 @@ public class Car {
     private String brand;
     private float fuelUsage;
     private float mass;
+
+    @ManyToMany
+    private Set<Engine> engines;
+
+    @ManyToMany
+    private Set<Wheel> wheels;
 
     public Car() {
     }
